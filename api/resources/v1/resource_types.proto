@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package resources.v1;
+
+import "google/api/field_behavior.proto";
+import "api/resources/v1/common.proto";
+import "api/resources/v1/resource_data.proto";
+
+option go_package = "resource-api/api/resources;resources";
+option java_multiple_files = true;
+option java_package = "api.resources";
+
+message RhelHost {
+    Metadata metadata = 1;
+
+    RhelHostResourceData resource_data = 2;
+
+}
+
+message K8sCluster {
+    Metadata metadata = 1;
+
+    K8sClusterResourceData resource_data = 2;
+}
