@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package resources.v1;
 
-import "google/api/field_behavior.proto";
+import "buf/validate/validate.proto";
 
-option go_package = "resource-api/api/resources;resources";
+option go_package = "github.com/tonytheleg/resource-api/api/resources;resources";
 option java_multiple_files = true;
 option java_package = "api.resources";
 
@@ -28,19 +28,21 @@ message K8sClusterResourceData {
     GKE = 6;
   }
 
-  string external_cluster_id = 219571597 [  json_name = "external_cluster_id" ];
-
-  string kube_version = 395858490 [  json_name = "kube_version" ];
+  string external_cluster_id = 219571597 [  json_name = "external_cluster_id", (buf.validate.field).required = true ];
+  ClusterStatus cluster_status = 499346904 [ json_name = "cluster_status", (buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+  KubeVendor kube_vendor = 264191642 [ json_name = "kube_vendor", (buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+  string kube_version = 395858490 [  json_name = "kube_version", (buf.validate.field).required = true ];
 }
 
 message RhelHostResourceData {
 
   enum HostStatus {
-    ENABLED = 0;
+    UNSPECIFIED = 0;
     DISABLED = 1;
+    ENABLED = 2;
   }
 
-  string host_id = 219571597 [  json_name = "host_id" ];
-
-  string os_version = 395858490 [  json_name = "os_version" ];
+  string host_id = 219571597 [  json_name = "host_id", (buf.validate.field).required = true ];
+  HostStatus host_status = 75440785 [ json_name = "host_status", (buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+  string os_version = 395858490 [  json_name = "os_version", (buf.validate.field).required = true ];
 }

@@ -1,7 +1,7 @@
 package data
 
 import (
-	"resource-api/internal/conf"
+	"github.com/tonytheleg/resource-api/internal/conf"
 
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"

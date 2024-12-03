@@ -33,6 +33,15 @@ config:
  	       --go_out=paths=source_relative:./internal \
 	       $(INTERNAL_PROTO_FILES)
 
+.PHONY: api_breaking
+# generate api proto
+api_breaking:
+	@echo "Generating api protos, allowing breaking changes"
+	docker build -t custom-protoc ./api
+	docker run -t --rm -v $(PWD)/api:/api:rw,z -v $(PWD)/openapi.yaml:/openapi.yaml:rw,z \
+	-w=/api/ custom-protoc sh -c "buf generate"
+
+
 .PHONY: api
 # generate api proto
 api:

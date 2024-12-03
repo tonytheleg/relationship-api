@@ -9,11 +9,11 @@ package main
 import (
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
-	"resource-api/internal/biz"
-	"resource-api/internal/conf"
-	"resource-api/internal/data"
-	"resource-api/internal/server"
-	"resource-api/internal/service"
+	"github.com/tonytheleg/resource-api/internal/biz"
+	"github.com/tonytheleg/resource-api/internal/conf"
+	"github.com/tonytheleg/resource-api/internal/data"
+	"github.com/tonytheleg/resource-api/internal/server"
+	"github.com/tonytheleg/resource-api/internal/service"
 )
 
 import (
@@ -30,9 +30,9 @@ func wireApp(confServer *conf.Server, confData *conf.Data, logger log.Logger) (*
 	}
 	resourceRepo := data.NewResourceRepo(dataData, logger)
 	resourceUsecase := biz.NewResourceUsecase(resourceRepo, logger)
-	resourceService := service.NewKesselResourceServiceService(resourceUsecase)
-	grpcServer := server.NewGRPCServer(confServer, resourceService, logger)
-	httpServer := server.NewHTTPServer(confServer, resourceService, logger)
+	kesselResourceServiceService := service.NewKesselResourceServiceService(resourceUsecase)
+	grpcServer := server.NewGRPCServer(confServer, kesselResourceServiceService, logger)
+	httpServer := server.NewHTTPServer(confServer, kesselResourceServiceService, logger)
 	app := newApp(logger, grpcServer, httpServer)
 	return app, func() {
 		cleanup()

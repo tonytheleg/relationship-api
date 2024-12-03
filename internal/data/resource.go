@@ -3,7 +3,7 @@ package data
 import (
 	"context"
 
-	"resource-api/internal/biz"
+	"github.com/tonytheleg/resource-api/internal/biz"
 
 	"github.com/go-kratos/kratos/v2/log"
 )

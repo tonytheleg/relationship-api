@@ -3,8 +3,9 @@ package service
 import (
 	"context"
 
-	pb "resource-api/api/resources/v1"
-	"resource-api/internal/biz"
+	pb "github.com/tonytheleg/resource-api/api/resources/v1"
+
+	"github.com/tonytheleg/resource-api/internal/biz"
 )
 
 type KesselResourceServiceService struct {

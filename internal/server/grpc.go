@@ -1,9 +1,12 @@
 package server
 
 import (
-	v1 "resource-api/api/resources/v1"
-	"resource-api/internal/conf"
-	"resource-api/internal/service"
+	"github.com/bufbuild/protovalidate-go"
+	v1 "github.com/tonytheleg/resource-api/api/resources/v1"
+
+	"github.com/tonytheleg/resource-api/internal/conf"
+	"github.com/tonytheleg/resource-api/internal/middleware"
+	"github.com/tonytheleg/resource-api/internal/service"
 
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/logging"
@@ -13,10 +16,13 @@ import (
 
 // NewGRPCServer new a gRPC server.
 func NewGRPCServer(c *conf.Server, rs *service.KesselResourceServiceService, logger log.Logger) *grpc.Server {
+	validator, _ := protovalidate.New()
+
 	var opts = []grpc.ServerOption{
 		grpc.Middleware(
 			logging.Server(logger),
 			recovery.Recovery(),
+			middleware.Validation(validator),
 		),
 	}
 	if c.Grpc.Network != "" {
