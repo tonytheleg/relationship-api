@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package relationships.v1;
+
+import "buf/validate/validate.proto";
+
+option go_package = "github.com/tonytheleg/relationship-api/api/relationships;relationships";
+option java_multiple_files = true;
+option java_package = "api.relationships";
+
+message IsPropagatedToRelationshipData {
+
+  // the aggregate status of the cluster
+  enum Status {
+    STATUS_UNSPECIFIED = 0;
+    STATUS_OTHER = 1;
+    VIOLATIONS = 2;
+    NO_VIOLATIONS = 3;
+  }
+
+  Status status = 355610639 [ json_name = "status",(buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+}
+
+message RegisteredToRelationshipData {
+
+
+  enum RegistrationStatus {
+    REGISTERED = 0;
+    UNREGISTERED = 1;
+    UNKNOWN = 3;
+  }
+
+  RegistrationStatus status = 355610639 [ json_name = "status",(buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+}

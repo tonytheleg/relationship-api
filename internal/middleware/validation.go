@@ -20,7 +20,7 @@ func Validation(validator *protovalidate.Validator) middleware.Middleware {
 				if err := validator.Validate(v); err != nil {
 					return nil, errors.BadRequest("VALIDATOR", err.Error()).WithCause(err)
 				}
-				if err := ValidateResourceCount(v); err != nil {
+				if err := ValidateRelationshipCount(v); err != nil {
 					return nil, errors.BadRequest("VALIDATOR", err.Error()).WithCause(err)
 				}
 			}
@@ -29,19 +29,19 @@ func Validation(validator *protovalidate.Validator) middleware.Middleware {
 	}
 }
 
-// ValidateResourceCount ensures that only one relationship is defined in a request
-func ValidateResourceCount(msg protoreflect.ProtoMessage) error {
-	var resourceCount map[string]interface{}
+// ValidateRelationshipCount ensures that only one relationship is defined in a request
+func ValidateRelationshipCount(msg protoreflect.ProtoMessage) error {
+	var relationshipCount map[string]interface{}
 
 	data, err := protojson.Marshal(msg)
 	if err != nil {
 		return fmt.Errorf("failed to marshall message: %w", err)
 	}
-	err = json.Unmarshal(data, &resourceCount)
+	err = json.Unmarshal(data, &relationshipCount)
 	if err != nil {
 		return fmt.Errorf("failed to unmarshal json: %w", err)
 	}
-	if len(resourceCount) > 1 {
+	if len(relationshipCount) > 2 {
 		return fmt.Errorf("only one relationship can be defined per request")
 	}
 	return nil

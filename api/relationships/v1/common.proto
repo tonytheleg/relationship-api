@@ -4,7 +4,7 @@ package relationships.v1;
 
 import "google/api/field_behavior.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+
 
 option go_package = "github.com/tonytheleg/relationship-api/api/relationships;relationships";
 option java_multiple_files = true;
@@ -12,11 +12,17 @@ option java_package = "api.relationships";
 
 
 message Metadata {
-    string id = 3355;
+  string id = 3355;
+
+  string relationship_type = 251000036
+    [ json_name = "relationship_type", (google.api.field_behavior) = OUTPUT_ONLY ];
+
   google.protobuf.Timestamp created_at = 3400
       [ json_name = "created_at" ];
+
   google.protobuf.Timestamp updated_at = 3401
       [ json_name = "updated_at"];
+
   google.protobuf.Timestamp deleted_at = 3402
       [ json_name = "deleted_at" ];
 }

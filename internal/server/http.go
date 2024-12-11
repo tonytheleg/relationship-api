@@ -15,7 +15,7 @@ import (
 )
 
 // NewHTTPServer new an HTTP server.
-func NewHTTPServer(c *conf.Server, rs *service.KesselResourceServiceService, logger log.Logger) *http.Server {
+func NewHTTPServer(c *conf.Server, rs *service.KesselRelationshipserviceService, logger log.Logger) *http.Server {
 	validator, _ := protovalidate.New()
 
 	var opts = []http.ServerOption{
@@ -35,6 +35,6 @@ func NewHTTPServer(c *conf.Server, rs *service.KesselResourceServiceService, log
 		opts = append(opts, http.Timeout(c.Http.Timeout.AsDuration()))
 	}
 	srv := http.NewServer(opts...)
-	v1.RegisterKesselResourceServiceHTTPServer(srv, rs)
+	v1.RegisterKesselRelationshipserviceHTTPServer(srv, rs)
 	return srv
 }

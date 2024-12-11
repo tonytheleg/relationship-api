@@ -28,11 +28,11 @@ func wireApp(confServer *conf.Server, confData *conf.Data, logger log.Logger) (*
 	if err != nil {
 		return nil, nil, err
 	}
-	resourceRepo := data.NewResourceRepo(dataData, logger)
-	resourceUsecase := biz.NewResourceUsecase(resourceRepo, logger)
-	kesselResourceServiceService := service.NewKesselResourceServiceService(resourceUsecase)
-	grpcServer := server.NewGRPCServer(confServer, kesselResourceServiceService, logger)
-	httpServer := server.NewHTTPServer(confServer, kesselResourceServiceService, logger)
+	relationshipRepo := data.NewRelationshipRepo(dataData, logger)
+	relationshipUsecase := biz.NewRelationshipUsecase(relationshipRepo, logger)
+	kesselRelationshipserviceService := service.NewKesselRelationshipserviceService(relationshipUsecase)
+	grpcServer := server.NewGRPCServer(confServer, kesselRelationshipserviceService, logger)
+	httpServer := server.NewHTTPServer(confServer, kesselRelationshipserviceService, logger)
 	app := newApp(logger, grpcServer, httpServer)
 	return app, func() {
 		cleanup()

@@ -11,8 +11,8 @@ type Relationship struct {
 	Hello string
 }
 
-// ResourceRepo is a Greater repo.
-type ResourceRepo interface {
+// RelationshipRepo is a Greater repo.
+type RelationshipRepo interface {
 	Save(context.Context, *Relationship) (*Relationship, error)
 	Update(context.Context, *Relationship) (*Relationship, error)
 	FindByID(context.Context, int64) (*Relationship, error)
@@ -20,19 +20,19 @@ type ResourceRepo interface {
 	ListAll(context.Context) ([]*Relationship, error)
 }
 
-// ResourceUsecase is a Relationship usecase.
-type ResourceUsecase struct {
-	repo ResourceRepo
+// RelationshipUsecase is a Relationship usecase.
+type RelationshipUsecase struct {
+	repo RelationshipRepo
 	log  *log.Helper
 }
 
-// NewResourceUsecase new a Relationship usecase.
-func NewResourceUsecase(repo ResourceRepo, logger log.Logger) *ResourceUsecase {
-	return &ResourceUsecase{repo: repo, log: log.NewHelper(logger)}
+// NewRelationshipUsecase new a Relationship usecase.
+func NewRelationshipUsecase(repo RelationshipRepo, logger log.Logger) *RelationshipUsecase {
+	return &RelationshipUsecase{repo: repo, log: log.NewHelper(logger)}
 }
 
-// CreateResource creates a Relationship, and returns the new Relationship.
-func (uc *ResourceUsecase) CreateResource(ctx context.Context, g *Relationship) (*Relationship, error) {
-	uc.log.WithContext(ctx).Infof("CreateResource: %v", g.Hello)
+// CreateRelationship creates a Relationship, and returns the new Relationship.
+func (uc *RelationshipUsecase) CreateRelationship(ctx context.Context, g *Relationship) (*Relationship, error) {
+	uc.log.WithContext(ctx).Infof("CreateRelationship: %v", g.Hello)
 	return uc.repo.Save(ctx, g)
 }

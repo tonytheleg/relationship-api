@@ -3,19 +3,19 @@
 
 openapi: 3.0.3
 info:
-    title: KesselResourceService API
+    title: KesselRelationshipservice API
     version: 0.0.1
 paths:
     /api/v1/relationships:
         put:
             tags:
-                - KesselResourceService
-            operationId: KesselResourceService_UpdateResource
+                - KesselRelationshipservice
+            operationId: KesselRelationshipservice_UpdateRelationship
             requestBody:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/relationships.v1.UpdateResourceRequest'
+                            $ref: '#/components/schemas/relationships.v1.UpdateRelationshipRequest'
                 required: true
             responses:
                 "200":
@@ -23,7 +23,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/relationships.v1.UpdateResourceResponse'
+                                $ref: '#/components/schemas/relationships.v1.UpdateRelationshipResponse'
                 default:
                     description: Default error response
                     content:
@@ -32,13 +32,13 @@ paths:
                                 $ref: '#/components/schemas/google.rpc.Status'
         post:
             tags:
-                - KesselResourceService
-            operationId: KesselResourceService_CreateResource
+                - KesselRelationshipservice
+            operationId: KesselRelationshipservice_CreateRelationship
             requestBody:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/relationships.v1.CreateResourceRequest'
+                            $ref: '#/components/schemas/relationships.v1.CreateRelationshipRequest'
                 required: true
             responses:
                 "200":
@@ -46,7 +46,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/relationships.v1.CreateResourceResponse'
+                                $ref: '#/components/schemas/relationships.v1.CreateRelationshipResponse'
                 default:
                     description: Default error response
                     content:
@@ -55,13 +55,13 @@ paths:
                                 $ref: '#/components/schemas/google.rpc.Status'
         delete:
             tags:
-                - KesselResourceService
-            operationId: KesselResourceService_DeleteResource
+                - KesselRelationshipservice
+            operationId: KesselRelationshipservice_DeleteRelationship
             requestBody:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/relationships.v1.DeleteResourceRequest'
+                            $ref: '#/components/schemas/relationships.v1.DeleteRelationshipRequest'
                 required: true
             responses:
                 "200":
@@ -69,7 +69,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/relationships.v1.DeleteResourceResponse'
+                                $ref: '#/components/schemas/relationships.v1.DeleteRelationshipResponse'
                 default:
                     description: Default error response
                     content:
@@ -102,64 +102,65 @@ components:
                         $ref: '#/components/schemas/google.protobuf.Any'
                     description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
             description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
-        relationships.v1.CreateResourceRequest:
-            type: object
-            properties:
-                rhel_host:
-                    $ref: '#/components/schemas/relationships.v1.RhelHost'
-                k8s_cluster:
-                    $ref: '#/components/schemas/relationships.v1.K8sCluster'
-        relationships.v1.CreateResourceResponse:
-            type: object
-            properties: {}
-        relationships.v1.DeleteResourceRequest:
-            type: object
-            properties:
-                rhel_host:
-                    $ref: '#/components/schemas/relationships.v1.RhelHost'
-                k8s_cluster:
-                    $ref: '#/components/schemas/relationships.v1.K8sCluster'
-        relationships.v1.DeleteResourceResponse:
-            type: object
-            properties: {}
-        relationships.v1.K8sCluster:
+        relationships.v1.CreateRelationshipRequest:
             type: object
             properties:
                 metadata:
                     $ref: '#/components/schemas/relationships.v1.Metadata'
-                resourceData:
-                    $ref: '#/components/schemas/relationships.v1.K8sClusterResourceData'
-        relationships.v1.K8sClusterResourceData:
+                isPropagatedTo:
+                    $ref: '#/components/schemas/relationships.v1.IsPropogatedTo'
+                isRegisteredTo:
+                    $ref: '#/components/schemas/relationships.v1.RegisteredTo'
+        relationships.v1.CreateRelationshipResponse:
+            type: object
+            properties: {}
+        relationships.v1.DeleteRelationshipRequest:
             type: object
             properties:
-                external_cluster_id:
-                    type: string
-                cluster_status:
+                metadata:
+                    $ref: '#/components/schemas/relationships.v1.Metadata'
+                isPropagatedTo:
+                    $ref: '#/components/schemas/relationships.v1.IsPropogatedTo'
+                isRegisteredTo:
+                    $ref: '#/components/schemas/relationships.v1.RegisteredTo'
+        relationships.v1.DeleteRelationshipResponse:
+            type: object
+            properties: {}
+        relationships.v1.IsPropagatedToRelationshipData:
+            type: object
+            properties:
+                status:
                     enum:
-                        - CLUSTER_STATUS_UNSPECIFIED
-                        - CLUSTER_STATUS_OTHER
-                        - READY
-                        - FAILED
-                        - OFFLINE
+                        - STATUS_UNSPECIFIED
+                        - STATUS_OTHER
+                        - VIOLATIONS
+                        - NO_VIOLATIONS
                     type: string
                     format: enum
-                kube_vendor:
+        relationships.v1.IsPropogatedTo:
+            type: object
+            properties:
+                subject_resource_type:
                     enum:
-                        - KUBE_VENDOR_UNSPECIFIED
-                        - KUBE_VENDOR_OTHER
-                        - AKS
-                        - EKS
-                        - IKS
-                        - OPENSHIFT
-                        - GKE
+                        - UnknownK8sSubject
+                        - k8s_policy
                     type: string
                     format: enum
-                kube_version:
+                object_resource_type:
+                    enum:
+                        - UnknownK8sObject
+                        - k8s_cluster
                     type: string
+                    format: enum
+                relationship_data:
+                    $ref: '#/components/schemas/relationships.v1.IsPropagatedToRelationshipData'
         relationships.v1.Metadata:
             type: object
             properties:
                 id:
+                    type: string
+                relationship_type:
+                    readOnly: true
                     type: string
                 created_at:
                     type: string
@@ -170,36 +171,44 @@ components:
                 deleted_at:
                     type: string
                     format: date-time
-        relationships.v1.RhelHost:
+        relationships.v1.RegisteredTo:
+            type: object
+            properties:
+                subject_resource_type:
+                    enum:
+                        - UnknownRhelSubject
+                        - rhel_host
+                    type: string
+                    format: enum
+                object_resource_type:
+                    enum:
+                        - UnknownRhelObject
+                        - subscription
+                    type: string
+                    format: enum
+                relationship_data:
+                    $ref: '#/components/schemas/relationships.v1.RegisteredToRelationshipData'
+        relationships.v1.RegisteredToRelationshipData:
+            type: object
+            properties:
+                status:
+                    enum:
+                        - REGISTERED
+                        - UNREGISTERED
+                        - UNKNOWN
+                    type: string
+                    format: enum
+        relationships.v1.UpdateRelationshipRequest:
             type: object
             properties:
                 metadata:
                     $ref: '#/components/schemas/relationships.v1.Metadata'
-                resourceData:
-                    $ref: '#/components/schemas/relationships.v1.RhelHostResourceData'
-        relationships.v1.RhelHostResourceData:
-            type: object
-            properties:
-                host_id:
-                    type: string
-                host_status:
-                    enum:
-                        - UNSPECIFIED
-                        - DISABLED
-                        - ENABLED
-                    type: string
-                    format: enum
-                os_version:
-                    type: string
-        relationships.v1.UpdateResourceRequest:
-            type: object
-            properties:
-                rhel_host:
-                    $ref: '#/components/schemas/relationships.v1.RhelHost'
-                k8s_cluster:
-                    $ref: '#/components/schemas/relationships.v1.K8sCluster'
-        relationships.v1.UpdateResourceResponse:
+                isPropagatedTo:
+                    $ref: '#/components/schemas/relationships.v1.IsPropogatedTo'
+                isRegisteredTo:
+                    $ref: '#/components/schemas/relationships.v1.RegisteredTo'
+        relationships.v1.UpdateRelationshipResponse:
             type: object
             properties: {}
 tags:
-    - name: KesselResourceService
+    - name: KesselRelationshipservice

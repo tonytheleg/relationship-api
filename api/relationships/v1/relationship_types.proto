@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package relationships.v1;
+
+import "relationships/v1/common.proto";
+import "relationships/v1/relationship_data.proto";
+import "buf/validate/validate.proto";
+
+option go_package = "github.com/tonytheleg/relationship-api/api/relationships;relationships";
+option java_multiple_files = true;
+option java_package = "api.relationships";
+
+  enum K8sSubjectResourceType {
+    UnknownK8sSubject = 0;
+    k8s_policy = 1;
+  }
+
+  enum K8sObjectResourceType {
+    UnknownK8sObject = 0;
+    k8s_cluster = 1;
+  }
+
+ enum RhelHostSubjectResourceType {
+    UnknownRhelSubject = 0;
+    rhel_host = 1;
+  }
+
+  enum RhelHostsObjectResourceType {
+    UnknownRhelObject = 0;
+    subscription = 1;
+  }
+
+
+
+message IsPropogatedTo {
+    K8sSubjectResourceType subject_resource_type = 1 [ json_name = "subject_resource_type", (buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+
+    K8sObjectResourceType object_resource_type = 2 [ json_name = "object_resource_type", (buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+
+    IsPropagatedToRelationshipData relationship_data = 3 [ json_name = "relationship_data", (buf.validate.field).required = true];
+}
+
+message RegisteredTo {
+    RhelHostSubjectResourceType subject_resource_type = 1 [ json_name = "subject_resource_type", (buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+
+    RhelHostsObjectResourceType object_resource_type = 2 [ json_name = "object_resource_type", (buf.validate.field).enum = {not_in: [0], defined_only: true}, (buf.validate.field).required = true ];
+
+    RegisteredToRelationshipData relationship_data =3 [ json_name = "relationship_data", (buf.validate.field).required = true ];
+}
+
+

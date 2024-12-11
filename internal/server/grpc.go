@@ -15,7 +15,7 @@ import (
 )
 
 // NewGRPCServer new a gRPC server.
-func NewGRPCServer(c *conf.Server, rs *service.KesselResourceServiceService, logger log.Logger) *grpc.Server {
+func NewGRPCServer(c *conf.Server, rs *service.KesselRelationshipserviceService, logger log.Logger) *grpc.Server {
 	validator, _ := protovalidate.New()
 
 	var opts = []grpc.ServerOption{
@@ -35,6 +35,6 @@ func NewGRPCServer(c *conf.Server, rs *service.KesselResourceServiceService, log
 		opts = append(opts, grpc.Timeout(c.Grpc.Timeout.AsDuration()))
 	}
 	srv := grpc.NewServer(opts...)
-	v1.RegisterKesselResourceServiceServer(srv, rs)
+	v1.RegisterKesselRelationshipserviceServer(srv, rs)
 	return srv
 }

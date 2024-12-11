@@ -39,7 +39,7 @@ option objc_class_prefix = "GAPI";
 //
 // Example:
 //
-//     message GetResourceRequest {
+//     message GetRelationshipRequest {
 //       // A unique request id.
 //       string request_id = 1;
 //
@@ -47,9 +47,9 @@ option objc_class_prefix = "GAPI";
 //       google.api.HttpBody http_body = 2;
 //     }
 //
-//     service ResourceService {
-//       rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);
-//       rpc UpdateResource(google.api.HttpBody) returns
+//     service Relationshipservice {
+//       rpc GetRelationship(GetRelationshipRequest) returns (google.api.HttpBody);
+//       rpc UpdateRelationship(google.api.HttpBody) returns
 //       (google.protobuf.Empty);
 //     }
 //
