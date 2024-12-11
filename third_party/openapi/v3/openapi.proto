@@ -166,7 +166,7 @@ message Expression {
   repeated NamedAny additional_properties = 1;
 }
 
-// Allows referencing an external resource for extended documentation.
+// Allows referencing an external relationship for extended documentation.
 message ExternalDocs {
   string description = 1;
   string url = 2;

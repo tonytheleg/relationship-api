@@ -58,7 +58,7 @@ enum FieldBehavior {
 
   // Denotes a field as immutable.
   // This indicates that the field may be set once in a request to create a
-  // resource, but may not be changed thereafter.
+  // relationship, but may not be changed thereafter.
   IMMUTABLE = 5;
 }
 

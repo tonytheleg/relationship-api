@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.34.2
 // 	protoc        (unknown)
-// source: resources/v1/resources_service.proto
+// source: relationships/v1/resources_service.proto
 
-package resources
+package relationships
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
@@ -391,28 +391,28 @@ func file_resources_v1_resources_service_proto_rawDescGZIP() []byte {
 
 var file_resources_v1_resources_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_resources_v1_resources_service_proto_goTypes = []any{
-	(*CreateResourceRequest)(nil),  // 0: resources.v1.CreateResourceRequest
-	(*CreateResourceResponse)(nil), // 1: resources.v1.CreateResourceResponse
-	(*UpdateResourceRequest)(nil),  // 2: resources.v1.UpdateResourceRequest
-	(*UpdateResourceResponse)(nil), // 3: resources.v1.UpdateResourceResponse
-	(*DeleteResourceRequest)(nil),  // 4: resources.v1.DeleteResourceRequest
-	(*DeleteResourceResponse)(nil), // 5: resources.v1.DeleteResourceResponse
-	(*RhelHost)(nil),               // 6: resources.v1.RhelHost
-	(*K8SCluster)(nil),             // 7: resources.v1.K8sCluster
+	(*CreateResourceRequest)(nil),  // 0: relationships.v1.CreateResourceRequest
+	(*CreateResourceResponse)(nil), // 1: relationships.v1.CreateResourceResponse
+	(*UpdateResourceRequest)(nil),  // 2: relationships.v1.UpdateResourceRequest
+	(*UpdateResourceResponse)(nil), // 3: relationships.v1.UpdateResourceResponse
+	(*DeleteResourceRequest)(nil),  // 4: relationships.v1.DeleteResourceRequest
+	(*DeleteResourceResponse)(nil), // 5: relationships.v1.DeleteResourceResponse
+	(*RhelHost)(nil),               // 6: relationships.v1.RhelHost
+	(*K8SCluster)(nil),             // 7: relationships.v1.K8sCluster
 }
 var file_resources_v1_resources_service_proto_depIdxs = []int32{
-	6, // 0: resources.v1.CreateResourceRequest.rhel_host:type_name -> resources.v1.RhelHost
-	7, // 1: resources.v1.CreateResourceRequest.k8s_cluster:type_name -> resources.v1.K8sCluster
-	6, // 2: resources.v1.UpdateResourceRequest.rhel_host:type_name -> resources.v1.RhelHost
-	7, // 3: resources.v1.UpdateResourceRequest.k8s_cluster:type_name -> resources.v1.K8sCluster
-	6, // 4: resources.v1.DeleteResourceRequest.rhel_host:type_name -> resources.v1.RhelHost
-	7, // 5: resources.v1.DeleteResourceRequest.k8s_cluster:type_name -> resources.v1.K8sCluster
-	0, // 6: resources.v1.KesselResourceService.CreateResource:input_type -> resources.v1.CreateResourceRequest
-	2, // 7: resources.v1.KesselResourceService.UpdateResource:input_type -> resources.v1.UpdateResourceRequest
-	4, // 8: resources.v1.KesselResourceService.DeleteResource:input_type -> resources.v1.DeleteResourceRequest
-	1, // 9: resources.v1.KesselResourceService.CreateResource:output_type -> resources.v1.CreateResourceResponse
-	3, // 10: resources.v1.KesselResourceService.UpdateResource:output_type -> resources.v1.UpdateResourceResponse
-	5, // 11: resources.v1.KesselResourceService.DeleteResource:output_type -> resources.v1.DeleteResourceResponse
+	6, // 0: relationships.v1.CreateResourceRequest.rhel_host:type_name -> relationships.v1.RhelHost
+	7, // 1: relationships.v1.CreateResourceRequest.k8s_cluster:type_name -> relationships.v1.K8sCluster
+	6, // 2: relationships.v1.UpdateResourceRequest.rhel_host:type_name -> relationships.v1.RhelHost
+	7, // 3: relationships.v1.UpdateResourceRequest.k8s_cluster:type_name -> relationships.v1.K8sCluster
+	6, // 4: relationships.v1.DeleteResourceRequest.rhel_host:type_name -> relationships.v1.RhelHost
+	7, // 5: relationships.v1.DeleteResourceRequest.k8s_cluster:type_name -> relationships.v1.K8sCluster
+	0, // 6: relationships.v1.KesselResourceService.CreateResource:input_type -> relationships.v1.CreateResourceRequest
+	2, // 7: relationships.v1.KesselResourceService.UpdateResource:input_type -> relationships.v1.UpdateResourceRequest
+	4, // 8: relationships.v1.KesselResourceService.DeleteResource:input_type -> relationships.v1.DeleteResourceRequest
+	1, // 9: relationships.v1.KesselResourceService.CreateResource:output_type -> relationships.v1.CreateResourceResponse
+	3, // 10: relationships.v1.KesselResourceService.UpdateResource:output_type -> relationships.v1.UpdateResourceResponse
+	5, // 11: relationships.v1.KesselResourceService.DeleteResource:output_type -> relationships.v1.DeleteResourceResponse
 	9, // [9:12] is the sub-list for method output_type
 	6, // [6:9] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name

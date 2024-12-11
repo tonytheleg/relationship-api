@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.34.2
 // 	protoc        (unknown)
-// source: resources/v1/resource_types.proto
+// source: relationships/v1/resource_types.proto
 
-package resources
+package relationships
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
@@ -183,17 +183,17 @@ func file_resources_v1_resource_types_proto_rawDescGZIP() []byte {
 
 var file_resources_v1_resource_types_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_resources_v1_resource_types_proto_goTypes = []any{
-	(*RhelHost)(nil),               // 0: resources.v1.RhelHost
-	(*K8SCluster)(nil),             // 1: resources.v1.K8sCluster
-	(*Metadata)(nil),               // 2: resources.v1.Metadata
-	(*RhelHostResourceData)(nil),   // 3: resources.v1.RhelHostResourceData
-	(*K8SClusterResourceData)(nil), // 4: resources.v1.K8sClusterResourceData
+	(*RhelHost)(nil),               // 0: relationships.v1.RhelHost
+	(*K8SCluster)(nil),             // 1: relationships.v1.K8sCluster
+	(*Metadata)(nil),               // 2: relationships.v1.Metadata
+	(*RhelHostResourceData)(nil),   // 3: relationships.v1.RhelHostResourceData
+	(*K8SClusterResourceData)(nil), // 4: relationships.v1.K8sClusterResourceData
 }
 var file_resources_v1_resource_types_proto_depIdxs = []int32{
-	2, // 0: resources.v1.RhelHost.metadata:type_name -> resources.v1.Metadata
-	3, // 1: resources.v1.RhelHost.resource_data:type_name -> resources.v1.RhelHostResourceData
-	2, // 2: resources.v1.K8sCluster.metadata:type_name -> resources.v1.Metadata
-	4, // 3: resources.v1.K8sCluster.resource_data:type_name -> resources.v1.K8sClusterResourceData
+	2, // 0: relationships.v1.RhelHost.metadata:type_name -> relationships.v1.Metadata
+	3, // 1: relationships.v1.RhelHost.resource_data:type_name -> relationships.v1.RhelHostResourceData
+	2, // 2: relationships.v1.K8sCluster.metadata:type_name -> relationships.v1.Metadata
+	4, // 3: relationships.v1.K8sCluster.resource_data:type_name -> relationships.v1.K8sClusterResourceData
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name

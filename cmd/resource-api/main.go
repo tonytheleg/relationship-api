@@ -4,7 +4,7 @@ import (
 	"flag"
 	"os"
 
-	"github.com/tonytheleg/resource-api/internal/conf"
+	"github.com/tonytheleg/relationship-api/internal/conf"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"

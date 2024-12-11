@@ -1,4 +1,4 @@
-module github.com/tonytheleg/resource-api
+module github.com/tonytheleg/relationship-api
 
 go 1.21.1
 

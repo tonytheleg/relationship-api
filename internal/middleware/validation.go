@@ -29,7 +29,7 @@ func Validation(validator *protovalidate.Validator) middleware.Middleware {
 	}
 }
 
-// ValidateResourceCount ensures that only one resource is defined in a request
+// ValidateResourceCount ensures that only one relationship is defined in a request
 func ValidateResourceCount(msg protoreflect.ProtoMessage) error {
 	var resourceCount map[string]interface{}
 
@@ -42,7 +42,7 @@ func ValidateResourceCount(msg protoreflect.ProtoMessage) error {
 		return fmt.Errorf("failed to unmarshal json: %w", err)
 	}
 	if len(resourceCount) > 1 {
-		return fmt.Errorf("only one resource can be defined per request")
+		return fmt.Errorf("only one relationship can be defined per request")
 	}
 	return nil
 }

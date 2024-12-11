@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.34.2
 // 	protoc        (unknown)
-// source: resources/v1/resource_data.proto
+// source: relationships/v1/resource_data.proto
 
-package resources
+package relationships
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
@@ -192,8 +192,8 @@ type K8SClusterResourceData struct {
 	unknownFields protoimpl.UnknownFields
 
 	ExternalClusterId string                               `protobuf:"bytes,219571597,opt,name=external_cluster_id,proto3" json:"external_cluster_id,omitempty"`
-	ClusterStatus     K8SClusterResourceData_ClusterStatus `protobuf:"varint,499346904,opt,name=cluster_status,proto3,enum=resources.v1.K8SClusterResourceData_ClusterStatus" json:"cluster_status,omitempty"`
-	KubeVendor        K8SClusterResourceData_KubeVendor    `protobuf:"varint,264191642,opt,name=kube_vendor,proto3,enum=resources.v1.K8SClusterResourceData_KubeVendor" json:"kube_vendor,omitempty"`
+	ClusterStatus     K8SClusterResourceData_ClusterStatus `protobuf:"varint,499346904,opt,name=cluster_status,proto3,enum=relationships.v1.K8SClusterResourceData_ClusterStatus" json:"cluster_status,omitempty"`
+	KubeVendor        K8SClusterResourceData_KubeVendor    `protobuf:"varint,264191642,opt,name=kube_vendor,proto3,enum=relationships.v1.K8SClusterResourceData_KubeVendor" json:"kube_vendor,omitempty"`
 	KubeVersion       string                               `protobuf:"bytes,395858490,opt,name=kube_version,proto3" json:"kube_version,omitempty"`
 }
 
@@ -263,7 +263,7 @@ type RhelHostResourceData struct {
 	unknownFields protoimpl.UnknownFields
 
 	HostId     string                          `protobuf:"bytes,219571597,opt,name=host_id,proto3" json:"host_id,omitempty"`
-	HostStatus RhelHostResourceData_HostStatus `protobuf:"varint,75440785,opt,name=host_status,proto3,enum=resources.v1.RhelHostResourceData_HostStatus" json:"host_status,omitempty"`
+	HostStatus RhelHostResourceData_HostStatus `protobuf:"varint,75440785,opt,name=host_status,proto3,enum=relationships.v1.RhelHostResourceData_HostStatus" json:"host_status,omitempty"`
 	OsVersion  string                          `protobuf:"bytes,395858490,opt,name=os_version,proto3" json:"os_version,omitempty"`
 }
 
@@ -403,16 +403,16 @@ func file_resources_v1_resource_data_proto_rawDescGZIP() []byte {
 var file_resources_v1_resource_data_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_resources_v1_resource_data_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_resources_v1_resource_data_proto_goTypes = []any{
-	(K8SClusterResourceData_ClusterStatus)(0), // 0: resources.v1.K8sClusterResourceData.ClusterStatus
-	(K8SClusterResourceData_KubeVendor)(0),    // 1: resources.v1.K8sClusterResourceData.KubeVendor
-	(RhelHostResourceData_HostStatus)(0),      // 2: resources.v1.RhelHostResourceData.HostStatus
-	(*K8SClusterResourceData)(nil),            // 3: resources.v1.K8sClusterResourceData
-	(*RhelHostResourceData)(nil),              // 4: resources.v1.RhelHostResourceData
+	(K8SClusterResourceData_ClusterStatus)(0), // 0: relationships.v1.K8sClusterResourceData.ClusterStatus
+	(K8SClusterResourceData_KubeVendor)(0),    // 1: relationships.v1.K8sClusterResourceData.KubeVendor
+	(RhelHostResourceData_HostStatus)(0),      // 2: relationships.v1.RhelHostResourceData.HostStatus
+	(*K8SClusterResourceData)(nil),            // 3: relationships.v1.K8sClusterResourceData
+	(*RhelHostResourceData)(nil),              // 4: relationships.v1.RhelHostResourceData
 }
 var file_resources_v1_resource_data_proto_depIdxs = []int32{
-	0, // 0: resources.v1.K8sClusterResourceData.cluster_status:type_name -> resources.v1.K8sClusterResourceData.ClusterStatus
-	1, // 1: resources.v1.K8sClusterResourceData.kube_vendor:type_name -> resources.v1.K8sClusterResourceData.KubeVendor
-	2, // 2: resources.v1.RhelHostResourceData.host_status:type_name -> resources.v1.RhelHostResourceData.HostStatus
+	0, // 0: relationships.v1.K8sClusterResourceData.cluster_status:type_name -> relationships.v1.K8sClusterResourceData.ClusterStatus
+	1, // 1: relationships.v1.K8sClusterResourceData.kube_vendor:type_name -> relationships.v1.K8sClusterResourceData.KubeVendor
+	2, // 2: relationships.v1.RhelHostResourceData.host_status:type_name -> relationships.v1.RhelHostResourceData.HostStatus
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

@@ -3,7 +3,7 @@ breaking:
   use:
     - FILE
   ignore:
-    - resources/v1
+    - relationships/v1
 lint:
   use:
     - DEFAULT

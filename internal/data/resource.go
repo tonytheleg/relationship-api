@@ -3,7 +3,7 @@ package data
 import (
 	"context"
 
-	"github.com/tonytheleg/resource-api/internal/biz"
+	"github.com/tonytheleg/relationship-api/internal/biz"
 
 	"github.com/go-kratos/kratos/v2/log"
 )
@@ -21,22 +21,22 @@ func NewResourceRepo(data *Data, logger log.Logger) biz.ResourceRepo {
 	}
 }
 
-func (r *resourceRepo) Save(ctx context.Context, g *biz.Resource) (*biz.Resource, error) {
+func (r *resourceRepo) Save(ctx context.Context, g *biz.Relationship) (*biz.Relationship, error) {
 	return g, nil
 }
 
-func (r *resourceRepo) Update(ctx context.Context, g *biz.Resource) (*biz.Resource, error) {
+func (r *resourceRepo) Update(ctx context.Context, g *biz.Relationship) (*biz.Relationship, error) {
 	return g, nil
 }
 
-func (r *resourceRepo) FindByID(context.Context, int64) (*biz.Resource, error) {
+func (r *resourceRepo) FindByID(context.Context, int64) (*biz.Relationship, error) {
 	return nil, nil
 }
 
-func (r *resourceRepo) ListByHello(context.Context, string) ([]*biz.Resource, error) {
+func (r *resourceRepo) ListByHello(context.Context, string) ([]*biz.Relationship, error) {
 	return nil, nil
 }
 
-func (r *resourceRepo) ListAll(context.Context) ([]*biz.Resource, error) {
+func (r *resourceRepo) ListAll(context.Context) ([]*biz.Relationship, error) {
 	return nil, nil
 }

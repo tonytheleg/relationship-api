@@ -143,7 +143,7 @@ message Method {
 //     service AccessControl {
 //       // Get the underlying ACL object.
 //       rpc GetAcl(GetAclRequest) returns (Acl) {
-//         option (google.api.http).get = "/v1/{resource=**}:getAcl";
+//         option (google.api.http).get = "/v1/{relationship=**}:getAcl";
 //       }
 //     }
 //
@@ -153,7 +153,7 @@ message Method {
 //
 //       // Get a data record.
 //       rpc GetData(GetDataRequest) returns (Data) {
-//         option (google.api.http).get = "/v2/{resource=**}";
+//         option (google.api.http).get = "/v2/{relationship=**}";
 //       }
 //     }
 //
@@ -173,7 +173,7 @@ message Method {
 //     service Storage {
 //       // Get the underlying ACL object.
 //       rpc GetAcl(GetAclRequest) returns (Acl) {
-//         option (google.api.http).get = "/v2/{resource=**}:getAcl";
+//         option (google.api.http).get = "/v2/{relationship=**}:getAcl";
 //       }
 //       ...
 //     }
@@ -194,7 +194,7 @@ message Method {
 //     service Storage {
 //       // Get the underlying ACL object.
 //       rpc GetAcl(GetAclRequest) returns (Acl) {
-//         option (google.api.http).get = "/v2/acls/{resource=**}:getAcl";
+//         option (google.api.http).get = "/v2/acls/{relationship=**}:getAcl";
 //       }
 //       ...
 //     }

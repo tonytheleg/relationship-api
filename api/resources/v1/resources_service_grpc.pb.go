@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             (unknown)
-// source: resources/v1/resources_service.proto
+// source: relationships/v1/resources_service.proto
 
-package resources
+package relationships
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	KesselResourceService_CreateResource_FullMethodName = "/resources.v1.KesselResourceService/CreateResource"
-	KesselResourceService_UpdateResource_FullMethodName = "/resources.v1.KesselResourceService/UpdateResource"
-	KesselResourceService_DeleteResource_FullMethodName = "/resources.v1.KesselResourceService/DeleteResource"
+	KesselResourceService_CreateResource_FullMethodName = "/relationships.v1.KesselResourceService/CreateResource"
+	KesselResourceService_UpdateResource_FullMethodName = "/relationships.v1.KesselResourceService/UpdateResource"
+	KesselResourceService_DeleteResource_FullMethodName = "/relationships.v1.KesselResourceService/DeleteResource"
 )
 
 // KesselResourceServiceClient is the client API for KesselResourceService service.
@@ -176,7 +176,7 @@ func _KesselResourceService_DeleteResource_Handler(srv interface{}, ctx context.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var KesselResourceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "resources.v1.KesselResourceService",
+	ServiceName: "relationships.v1.KesselResourceService",
 	HandlerType: (*KesselResourceServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -193,5 +193,5 @@ var KesselResourceService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "resources/v1/resources_service.proto",
+	Metadata: "relationships/v1/resources_service.proto",
 }

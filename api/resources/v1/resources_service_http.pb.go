@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-http v2.8.0
 // - protoc             (unknown)
-// source: resources/v1/resources_service.proto
+// source: relationships/v1/resources_service.proto
 
-package resources
+package relationships
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ var _ = binding.EncodeURL
 
 const _ = http.SupportPackageIsVersion1
 
-const OperationKesselResourceServiceCreateResource = "/resources.v1.KesselResourceService/CreateResource"
-const OperationKesselResourceServiceDeleteResource = "/resources.v1.KesselResourceService/DeleteResource"
-const OperationKesselResourceServiceUpdateResource = "/resources.v1.KesselResourceService/UpdateResource"
+const OperationKesselResourceServiceCreateResource = "/relationships.v1.KesselResourceService/CreateResource"
+const OperationKesselResourceServiceDeleteResource = "/relationships.v1.KesselResourceService/DeleteResource"
+const OperationKesselResourceServiceUpdateResource = "/relationships.v1.KesselResourceService/UpdateResource"
 
 type KesselResourceServiceHTTPServer interface {
 	CreateResource(context.Context, *CreateResourceRequest) (*CreateResourceResponse, error)
@@ -31,9 +31,9 @@ type KesselResourceServiceHTTPServer interface {
 
 func RegisterKesselResourceServiceHTTPServer(s *http.Server, srv KesselResourceServiceHTTPServer) {
 	r := s.Route("/")
-	r.POST("/api/v1/resources", _KesselResourceService_CreateResource0_HTTP_Handler(srv))
-	r.PUT("/api/v1/resources", _KesselResourceService_UpdateResource0_HTTP_Handler(srv))
-	r.DELETE("/api/v1/resources", _KesselResourceService_DeleteResource0_HTTP_Handler(srv))
+	r.POST("/api/v1/relationships", _KesselResourceService_CreateResource0_HTTP_Handler(srv))
+	r.PUT("/api/v1/relationships", _KesselResourceService_UpdateResource0_HTTP_Handler(srv))
+	r.DELETE("/api/v1/relationships", _KesselResourceService_DeleteResource0_HTTP_Handler(srv))
 }
 
 func _KesselResourceService_CreateResource0_HTTP_Handler(srv KesselResourceServiceHTTPServer) func(ctx http.Context) error {
@@ -118,7 +118,7 @@ func NewKesselResourceServiceHTTPClient(client *http.Client) KesselResourceServi
 
 func (c *KesselResourceServiceHTTPClientImpl) CreateResource(ctx context.Context, in *CreateResourceRequest, opts ...http.CallOption) (*CreateResourceResponse, error) {
 	var out CreateResourceResponse
-	pattern := "/api/v1/resources"
+	pattern := "/api/v1/relationships"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationKesselResourceServiceCreateResource))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -131,7 +131,7 @@ func (c *KesselResourceServiceHTTPClientImpl) CreateResource(ctx context.Context
 
 func (c *KesselResourceServiceHTTPClientImpl) DeleteResource(ctx context.Context, in *DeleteResourceRequest, opts ...http.CallOption) (*DeleteResourceResponse, error) {
 	var out DeleteResourceResponse
-	pattern := "/api/v1/resources"
+	pattern := "/api/v1/relationships"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationKesselResourceServiceDeleteResource))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -144,7 +144,7 @@ func (c *KesselResourceServiceHTTPClientImpl) DeleteResource(ctx context.Context
 
 func (c *KesselResourceServiceHTTPClientImpl) UpdateResource(ctx context.Context, in *UpdateResourceRequest, opts ...http.CallOption) (*UpdateResourceResponse, error) {
 	var out UpdateResourceResponse
-	pattern := "/api/v1/resources"
+	pattern := "/api/v1/relationships"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationKesselResourceServiceUpdateResource))
 	opts = append(opts, http.PathTemplate(pattern))

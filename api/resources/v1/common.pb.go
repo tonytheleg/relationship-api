@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.34.2
 // 	protoc        (unknown)
-// source: resources/v1/common.proto
+// source: relationships/v1/common.proto
 
-package resources
+package relationships
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
@@ -141,13 +141,13 @@ func file_resources_v1_common_proto_rawDescGZIP() []byte {
 
 var file_resources_v1_common_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_resources_v1_common_proto_goTypes = []any{
-	(*Metadata)(nil),              // 0: resources.v1.Metadata
+	(*Metadata)(nil),              // 0: relationships.v1.Metadata
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
 }
 var file_resources_v1_common_proto_depIdxs = []int32{
-	1, // 0: resources.v1.Metadata.created_at:type_name -> google.protobuf.Timestamp
-	1, // 1: resources.v1.Metadata.updated_at:type_name -> google.protobuf.Timestamp
-	1, // 2: resources.v1.Metadata.deleted_at:type_name -> google.protobuf.Timestamp
+	1, // 0: relationships.v1.Metadata.created_at:type_name -> google.protobuf.Timestamp
+	1, // 1: relationships.v1.Metadata.updated_at:type_name -> google.protobuf.Timestamp
+	1, // 2: relationships.v1.Metadata.deleted_at:type_name -> google.protobuf.Timestamp
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

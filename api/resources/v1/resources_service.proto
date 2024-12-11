@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-package resources.v1;
+package relationships.v1;
 
 import "google/api/annotations.proto";
 import "buf/validate/validate.proto";
 
-import "resources/v1/resource_types.proto";
+import "relationships/v1/resource_types.proto";
 
-option go_package = "github.com/tonytheleg/resource-api/api/resources;resources";
+option go_package = "github.com/tonytheleg/relationship-api/api/relationships;relationships";
 option java_multiple_files = true;
-option java_package = "api.resources";
+option java_package = "api.relationships";
 
 message CreateResourceRequest {
   RhelHost rhel_host = 1 [ json_name = "rhel_host" ];
@@ -38,21 +38,21 @@ message DeleteResourceResponse {}
 service KesselResourceService {
   rpc CreateResource(CreateResourceRequest) returns (CreateResourceResponse) {
     option (google.api.http) = {
-      post : "/api/v1/resources"
+      post : "/api/v1/relationships"
       body : "*"
     };
   };
 
   rpc UpdateResource(UpdateResourceRequest) returns (UpdateResourceResponse) {
     option (google.api.http) = {
-      put : "/api/v1/resources"
+      put : "/api/v1/relationships"
       body : "*"
     };
   };
 
   rpc DeleteResource(DeleteResourceRequest) returns (DeleteResourceResponse) {
     option (google.api.http) = {
-      delete : "/api/v1/resources"
+      delete : "/api/v1/relationships"
       body : "*"
     };
   };

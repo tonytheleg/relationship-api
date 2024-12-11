@@ -77,7 +77,7 @@ message Http {
 //       string name = 1; // Mapped to URL path.
 //     }
 //     message Message {
-//       string text = 1; // The resource content.
+//       string text = 1; // The relationship content.
 //     }
 //
 // This enables an HTTP REST to gRPC mapping as below:
@@ -123,7 +123,7 @@ message Http {
 //
 // For HTTP methods that allow a request body, the `body` field
 // specifies the mapping. Consider a REST update method on the
-// message resource collection:
+// message relationship collection:
 //
 //     service Messaging {
 //       rpc UpdateMessage(UpdateMessageRequest) returns (Message) {
@@ -321,19 +321,19 @@ message HttpRule {
   // can be defined using the 'custom' field.
   oneof pattern {
     // Maps to HTTP GET. Used for listing and getting information about
-    // resources.
+    // relationships.
     string get = 2;
 
-    // Maps to HTTP PUT. Used for replacing a resource.
+    // Maps to HTTP PUT. Used for replacing a relationship.
     string put = 3;
 
-    // Maps to HTTP POST. Used for creating a resource or performing an action.
+    // Maps to HTTP POST. Used for creating a relationship or performing an action.
     string post = 4;
 
-    // Maps to HTTP DELETE. Used for deleting a resource.
+    // Maps to HTTP DELETE. Used for deleting a relationship.
     string delete = 5;
 
-    // Maps to HTTP PATCH. Used for updating a resource.
+    // Maps to HTTP PATCH. Used for updating a relationship.
     string patch = 6;
 
     // The custom pattern is used for specifying an HTTP method that is not

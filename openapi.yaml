@@ -6,7 +6,7 @@ info:
     title: KesselResourceService API
     version: 0.0.1
 paths:
-    /api/v1/resources:
+    /api/v1/relationships:
         put:
             tags:
                 - KesselResourceService
@@ -15,7 +15,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/resources.v1.UpdateResourceRequest'
+                            $ref: '#/components/schemas/relationships.v1.UpdateResourceRequest'
                 required: true
             responses:
                 "200":
@@ -23,7 +23,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/resources.v1.UpdateResourceResponse'
+                                $ref: '#/components/schemas/relationships.v1.UpdateResourceResponse'
                 default:
                     description: Default error response
                     content:
@@ -38,7 +38,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/resources.v1.CreateResourceRequest'
+                            $ref: '#/components/schemas/relationships.v1.CreateResourceRequest'
                 required: true
             responses:
                 "200":
@@ -46,7 +46,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/resources.v1.CreateResourceResponse'
+                                $ref: '#/components/schemas/relationships.v1.CreateResourceResponse'
                 default:
                     description: Default error response
                     content:
@@ -61,7 +61,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/resources.v1.DeleteResourceRequest'
+                            $ref: '#/components/schemas/relationships.v1.DeleteResourceRequest'
                 required: true
             responses:
                 "200":
@@ -69,7 +69,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/resources.v1.DeleteResourceResponse'
+                                $ref: '#/components/schemas/relationships.v1.DeleteResourceResponse'
                 default:
                     description: Default error response
                     content:
@@ -102,34 +102,34 @@ components:
                         $ref: '#/components/schemas/google.protobuf.Any'
                     description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
             description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
-        resources.v1.CreateResourceRequest:
+        relationships.v1.CreateResourceRequest:
             type: object
             properties:
                 rhel_host:
-                    $ref: '#/components/schemas/resources.v1.RhelHost'
+                    $ref: '#/components/schemas/relationships.v1.RhelHost'
                 k8s_cluster:
-                    $ref: '#/components/schemas/resources.v1.K8sCluster'
-        resources.v1.CreateResourceResponse:
+                    $ref: '#/components/schemas/relationships.v1.K8sCluster'
+        relationships.v1.CreateResourceResponse:
             type: object
             properties: {}
-        resources.v1.DeleteResourceRequest:
+        relationships.v1.DeleteResourceRequest:
             type: object
             properties:
                 rhel_host:
-                    $ref: '#/components/schemas/resources.v1.RhelHost'
+                    $ref: '#/components/schemas/relationships.v1.RhelHost'
                 k8s_cluster:
-                    $ref: '#/components/schemas/resources.v1.K8sCluster'
-        resources.v1.DeleteResourceResponse:
+                    $ref: '#/components/schemas/relationships.v1.K8sCluster'
+        relationships.v1.DeleteResourceResponse:
             type: object
             properties: {}
-        resources.v1.K8sCluster:
+        relationships.v1.K8sCluster:
             type: object
             properties:
                 metadata:
-                    $ref: '#/components/schemas/resources.v1.Metadata'
+                    $ref: '#/components/schemas/relationships.v1.Metadata'
                 resourceData:
-                    $ref: '#/components/schemas/resources.v1.K8sClusterResourceData'
-        resources.v1.K8sClusterResourceData:
+                    $ref: '#/components/schemas/relationships.v1.K8sClusterResourceData'
+        relationships.v1.K8sClusterResourceData:
             type: object
             properties:
                 external_cluster_id:
@@ -156,7 +156,7 @@ components:
                     format: enum
                 kube_version:
                     type: string
-        resources.v1.Metadata:
+        relationships.v1.Metadata:
             type: object
             properties:
                 id:
@@ -170,14 +170,14 @@ components:
                 deleted_at:
                     type: string
                     format: date-time
-        resources.v1.RhelHost:
+        relationships.v1.RhelHost:
             type: object
             properties:
                 metadata:
-                    $ref: '#/components/schemas/resources.v1.Metadata'
+                    $ref: '#/components/schemas/relationships.v1.Metadata'
                 resourceData:
-                    $ref: '#/components/schemas/resources.v1.RhelHostResourceData'
-        resources.v1.RhelHostResourceData:
+                    $ref: '#/components/schemas/relationships.v1.RhelHostResourceData'
+        relationships.v1.RhelHostResourceData:
             type: object
             properties:
                 host_id:
@@ -191,14 +191,14 @@ components:
                     format: enum
                 os_version:
                     type: string
-        resources.v1.UpdateResourceRequest:
+        relationships.v1.UpdateResourceRequest:
             type: object
             properties:
                 rhel_host:
-                    $ref: '#/components/schemas/resources.v1.RhelHost'
+                    $ref: '#/components/schemas/relationships.v1.RhelHost'
                 k8s_cluster:
-                    $ref: '#/components/schemas/resources.v1.K8sCluster'
-        resources.v1.UpdateResourceResponse:
+                    $ref: '#/components/schemas/relationships.v1.K8sCluster'
+        relationships.v1.UpdateResourceResponse:
             type: object
             properties: {}
 tags:

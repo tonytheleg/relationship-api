@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-package resources.v1;
+package relationships.v1;
 
 import "google/api/field_behavior.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
-option go_package = "github.com/tonytheleg/resource-api/api/resources;resources";
+option go_package = "github.com/tonytheleg/relationship-api/api/relationships;relationships";
 option java_multiple_files = true;
-option java_package = "api.resources";
+option java_package = "api.relationships";
 
 
 message Metadata {

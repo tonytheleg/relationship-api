@@ -2,11 +2,11 @@ package server
 
 import (
 	"github.com/bufbuild/protovalidate-go"
-	v1 "github.com/tonytheleg/resource-api/api/resources/v1"
+	v1 "github.com/tonytheleg/relationship-api/api/relationships/v1"
 
-	"github.com/tonytheleg/resource-api/internal/conf"
-	"github.com/tonytheleg/resource-api/internal/middleware"
-	"github.com/tonytheleg/resource-api/internal/service"
+	"github.com/tonytheleg/relationship-api/internal/conf"
+	"github.com/tonytheleg/relationship-api/internal/middleware"
+	"github.com/tonytheleg/relationship-api/internal/service"
 
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/logging"

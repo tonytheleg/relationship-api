@@ -9,11 +9,11 @@ package main
 import (
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
-	"github.com/tonytheleg/resource-api/internal/biz"
-	"github.com/tonytheleg/resource-api/internal/conf"
-	"github.com/tonytheleg/resource-api/internal/data"
-	"github.com/tonytheleg/resource-api/internal/server"
-	"github.com/tonytheleg/resource-api/internal/service"
+	"github.com/tonytheleg/relationship-api/internal/biz"
+	"github.com/tonytheleg/relationship-api/internal/conf"
+	"github.com/tonytheleg/relationship-api/internal/data"
+	"github.com/tonytheleg/relationship-api/internal/server"
+	"github.com/tonytheleg/relationship-api/internal/service"
 )
 
 import (
